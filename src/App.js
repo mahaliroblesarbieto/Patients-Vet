@@ -7,10 +7,9 @@ class App extends Component {
   state = {};
   render() {
     return (
-      <div class="container">
-        <Header 
-        titulo="Pacientes Administrador Veterinaria"/>
-        <NuevaCita/>
+      <div className="container">
+        <Header titulo="Pacientes Administrador Veterinaria" />
+        <NuevaCita />
       </div>
     );
   }

@@ -1,7 +1,25 @@
 import React, { Component } from "react";
 
 class NuevaCita extends Component {
-  state = {};
+  state = {
+    cita: {
+      mascota:'',
+      propietario:'',
+      fecha:'',
+      hora:'',
+      sintomas:'',
+    }
+  };
+
+  handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+    this.setState({
+      cita: {
+        ...this.state.cita,
+       [e.target.name]: e.target.value,
+      }
+    })
+  }
   render() {
     return (
       <div className="card mt-5 py-5">
@@ -20,6 +38,7 @@ class NuevaCita extends Component {
                   className="form-control"
                   placeholder="Nombre Mascota"
                   name="Mascota"
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
@@ -33,6 +52,7 @@ class NuevaCita extends Component {
                   className="form-control"
                   placeholder="Nombre dueño mascota"
                   name="propietario"
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
@@ -45,6 +65,7 @@ class NuevaCita extends Component {
                   type="date"
                   className="form-control"
                   name="fecha"
+                  onChange={this.handleChange}
                 />
               </div>
               <label className="col-sm-4 col-lg-2 col-form-label">
@@ -55,6 +76,7 @@ class NuevaCita extends Component {
                   type="time"
                   className="form-control"
                   name="hora"
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
@@ -63,7 +85,7 @@ class NuevaCita extends Component {
                 Sìntomas
               </label>
               <div className="col-sm-8 col-lg-10">
-                <textarea name="sintomas" placeholder="Describe los sìntomas" className="form-control"></textarea>
+                <textarea name="sintomas" placeholder="Describe los sìntomas" className="form-control" onChange={this.handleChange}></textarea>
               </div>
             </div>
             <input type="submit" className="py-3 mt-2 btn btn-success btn-block" value="Agregar nueva cita"/>
