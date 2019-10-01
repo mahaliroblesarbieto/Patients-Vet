@@ -33,8 +33,11 @@ class NuevaCita extends Component {
       this.setState({error: true});
       return;
     }
-    const nuevaCita = {...this.state.cita}
+    const nuevaCita = {...this.state.cita};
+    console.log(nuevaCita);
+    
     nuevaCita.id = uuid();
+    console.log(nuevaCita);
     // this.props.crearNuevaCita(this.state.cita);
     this.props.crearNuevaCita(nuevaCita);
     this.setState({...stateInicial})
