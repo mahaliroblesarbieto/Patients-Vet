@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uuid from 'uuid';
 
 const stateInicial = {
   cita: {
@@ -32,7 +33,10 @@ class NuevaCita extends Component {
       this.setState({error: true});
       return;
     }
-    this.props.crearNuevaCita(this.state.cita);
+    const nuevaCita = {...this.state.cita}
+    nuevaCita.id = uuid();
+    // this.props.crearNuevaCita(this.state.cita);
+    this.props.crearNuevaCita(nuevaCita);
     this.setState({...stateInicial})
 
   }
